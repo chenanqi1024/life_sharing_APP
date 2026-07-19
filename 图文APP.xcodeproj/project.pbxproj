@@ -6,8 +6,33 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2A652A7F300D016D007ED53E /* DESIGN-MANIFEST.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A79300D016D007ED53E /* DESIGN-MANIFEST.json */; };
+		2A652A80300D016D007ED53E /* home.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A74300D016D007ED53E /* home.js */; };
+		2A652A81300D016D007ED53E /* publish.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A7D300D016D007ED53E /* publish.html */; };
+		2A652A82300D016D007ED53E /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A7C300D016D007ED53E /* index.html */; };
+		2A652A83300D016D007ED53E /* publish.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A76300D016D007ED53E /* publish.js */; };
+		2A652A84300D016D007ED53E /* app.css in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A71300D016D007ED53E /* app.css */; };
+		2A652A85300D016D007ED53E /* huahuoji-ios-home.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A7B300D016D007ED53E /* huahuoji-ios-home.html */; };
+		2A652A86300D016D007ED53E /* DESIGN-HANDOFF.md in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A78300D016D007ED53E /* DESIGN-HANDOFF.md */; };
+		2A652A87300D016D007ED53E /* detail.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A73300D016D007ED53E /* detail.js */; };
+		2A652A88300D016D007ED53E /* posts.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A75300D016D007ED53E /* posts.js */; };
+		2A652A89300D016D007ED53E /* detail.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A7A300D016D007ED53E /* detail.html */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2A652A61300D0061007ED53E /* 图文APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "图文APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A652A71300D016D007ED53E /* app.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = app.css; sourceTree = "<group>"; };
+		2A652A73300D016D007ED53E /* detail.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = detail.js; sourceTree = "<group>"; };
+		2A652A74300D016D007ED53E /* home.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = home.js; sourceTree = "<group>"; };
+		2A652A75300D016D007ED53E /* posts.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = posts.js; sourceTree = "<group>"; };
+		2A652A76300D016D007ED53E /* publish.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = publish.js; sourceTree = "<group>"; };
+		2A652A78300D016D007ED53E /* DESIGN-HANDOFF.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "DESIGN-HANDOFF.md"; sourceTree = "<group>"; };
+		2A652A79300D016D007ED53E /* DESIGN-MANIFEST.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "DESIGN-MANIFEST.json"; sourceTree = "<group>"; };
+		2A652A7A300D016D007ED53E /* detail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = detail.html; sourceTree = "<group>"; };
+		2A652A7B300D016D007ED53E /* huahuoji-ios-home.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "huahuoji-ios-home.html"; sourceTree = "<group>"; };
+		2A652A7C300D016D007ED53E /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		2A652A7D300D016D007ED53E /* publish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = publish.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +57,7 @@
 		2A652A58300D0061007ED53E = {
 			isa = PBXGroup;
 			children = (
+				2A652A7E300D016D007ED53E /* OpenDesign */,
 				2A652A63300D0061007ED53E /* 图文APP */,
 				2A652A62300D0061007ED53E /* Products */,
 			);
@@ -43,6 +69,40 @@
 				2A652A61300D0061007ED53E /* 图文APP.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2A652A72300D016D007ED53E /* css */ = {
+			isa = PBXGroup;
+			children = (
+				2A652A71300D016D007ED53E /* app.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		2A652A77300D016D007ED53E /* js */ = {
+			isa = PBXGroup;
+			children = (
+				2A652A73300D016D007ED53E /* detail.js */,
+				2A652A74300D016D007ED53E /* home.js */,
+				2A652A75300D016D007ED53E /* posts.js */,
+				2A652A76300D016D007ED53E /* publish.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		2A652A7E300D016D007ED53E /* OpenDesign */ = {
+			isa = PBXGroup;
+			children = (
+				2A652A72300D016D007ED53E /* css */,
+				2A652A77300D016D007ED53E /* js */,
+				2A652A78300D016D007ED53E /* DESIGN-HANDOFF.md */,
+				2A652A79300D016D007ED53E /* DESIGN-MANIFEST.json */,
+				2A652A7A300D016D007ED53E /* detail.html */,
+				2A652A7B300D016D007ED53E /* huahuoji-ios-home.html */,
+				2A652A7C300D016D007ED53E /* index.html */,
+				2A652A7D300D016D007ED53E /* publish.html */,
+			);
+			path = OpenDesign;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +169,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A652A7F300D016D007ED53E /* DESIGN-MANIFEST.json in Resources */,
+				2A652A80300D016D007ED53E /* home.js in Resources */,
+				2A652A81300D016D007ED53E /* publish.html in Resources */,
+				2A652A82300D016D007ED53E /* index.html in Resources */,
+				2A652A83300D016D007ED53E /* publish.js in Resources */,
+				2A652A84300D016D007ED53E /* app.css in Resources */,
+				2A652A85300D016D007ED53E /* huahuoji-ios-home.html in Resources */,
+				2A652A86300D016D007ED53E /* DESIGN-HANDOFF.md in Resources */,
+				2A652A87300D016D007ED53E /* detail.js in Resources */,
+				2A652A88300D016D007ED53E /* posts.js in Resources */,
+				2A652A89300D016D007ED53E /* detail.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,11 +324,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "花火记";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -284,11 +356,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "花火记";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
