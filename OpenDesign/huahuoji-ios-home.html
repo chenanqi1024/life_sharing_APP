@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>花火记 · 摄影插画灵感首页</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <main class="stage" aria-label="花火记 · 摄影插画灵感首页">
+    <div class="iphone">
+      <div class="device-glow"></div>
+      <div class="island" aria-hidden="true"></div>
+      <div class="statusbar" aria-hidden="true">
+        <span>9:41</span>
+        <span class="status-icons">
+          <span class="signal"><i></i><i></i><i></i><i></i></span>
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+            <path d="M2 4.8C5.5 1.8 10.5 1.8 14 4.8M4.7 7.3C6.6 5.8 9.4 5.8 11.3 7.3M7.2 9.6C7.7 9.2 8.3 9.2 8.8 9.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="battery"><span></span></span>
+        </span>
+      </div>
+
+      <div class="app">
+        <header class="app-header">
+          <div class="title-row">
+            <div class="brand-lockup">
+              <div class="spark" aria-hidden="true"></div>
+              <div class="brand-text">
+                <strong>花火记</strong>
+                <span>摄影 / 插画灵感</span>
+              </div>
+            </div>
+            <button class="icon-btn" type="button" aria-label="通知">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+                <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
+              </svg>
+            </button>
+          </div>
+
+          <label class="searchbar">
+            <span class="sr-only">搜索灵感</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-3.5-3.5"></path>
+            </svg>
+            <input id="searchInput" type="search" placeholder="搜索胶片、窗边光、拼贴…" autocomplete="off" />
+            <span class="filter-chip">推荐</span>
+          </label>
+
+          <nav class="channels" aria-label="内容频道">
+            <button class="channel active" type="button">今日灵感</button>
+            <button class="channel" type="button">摄影</button>
+            <button class="channel" type="button">插画</button>
+            <button class="channel" type="button">胶片感</button>
+            <button class="channel" type="button">配色</button>
+          </nav>
+        </header>
+
+        <section class="screen active" id="homeScreen" data-od-id="home-feed" aria-label="首页信息流">
+          <div class="feed-scroll">
+            <div class="feed-grid" id="feedGrid"></div>
+          </div>
+        </section>
+
+        <section class="screen" id="profileScreen" data-od-id="profile-placeholder" aria-label="我的占位页">
+          <div class="placeholder-screen">
+            <div class="placeholder-card">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 21c1.8-4.2 5-6 8-6s6.2 1.8 8 6"/>
+                  </svg>
+                </div>
+                <h2>我的花火</h2>
+                <p>这里先作为占位。后续可以放收藏夹、灵感分组和个人主页编辑。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <nav class="tabbar" aria-label="底部导航">
+          <button class="tab active" type="button" data-tab="homeScreen" aria-label="首页">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 10.6 12 3l9 7.6V21H5.8A2.8 2.8 0 0 1 3 18.2z"/>
+              <path d="M9 21v-7h6v7"/>
+            </svg>
+            <span>首页</span>
+          </button>
+          <a class="tab" href="publish.html" aria-label="发布">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+            <span>发布</span>
+          </a>
+          <button class="tab" type="button" data-tab="profileScreen" aria-label="我的">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 21c1.8-4.2 5-6 8-6s6.2 1.8 8 6"/>
+            </svg>
+            <span>我的</span>
+          </button>
+        </nav>
+      </div>
+      <div class="home-indicator" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <script src="js/posts.js" defer></script>
+  <script src="js/home.js" defer></script>
+</body>
+</html>

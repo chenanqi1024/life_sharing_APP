@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>花火记 · 发布灵感</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <main class="stage" aria-label="花火记 · 发布灵感">
+    <div class="iphone">
+      <div class="device-glow"></div>
+      <div class="island" aria-hidden="true"></div>
+      <div class="statusbar" aria-hidden="true">
+        <span>9:41</span>
+        <span class="status-icons">
+          <span class="signal"><i></i><i></i><i></i><i></i></span>
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+            <path d="M2 4.8C5.5 1.8 10.5 1.8 14 4.8M4.7 7.3C6.6 5.8 9.4 5.8 11.3 7.3M7.2 9.6C7.7 9.2 8.3 9.2 8.8 9.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="battery"><span></span></span>
+        </span>
+      </div>
+
+      <div class="app app-page">
+        <section class="screen active" id="publishScreen" data-od-id="publish-page" aria-label="发布灵感页">
+          <div class="publish-screen">
+            <div class="publish-topbar" aria-label="发布页标题栏">
+              <button class="publish-cancel" type="button" id="cancelPublish">取消</button>
+              <h1 class="publish-title">发布灵感</h1>
+              <span class="draft-pill" id="draftState">草稿</span>
+            </div>
+
+            <article class="compose-card">
+              <div class="compose-heading">
+                <h2>添加图文</h2>
+                <p>上传多张图片，写下摄影 / 插画灵感的标题和详情。</p>
+              </div>
+
+              <div class="photo-grid" id="photoGrid">
+                <button class="photo-add" type="button" id="photoAdd" aria-label="添加图片">
+                  <span class="photo-add-inner">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14"/>
+                    </svg>
+                    添加图片
+                  </span>
+                </button>
+              </div>
+              <input class="sr-only" id="photoInput" type="file" accept="image/*" multiple />
+
+              <div class="field">
+                <div class="field-row">
+                  <label for="postTitleInput">标题</label>
+                  <span class="counter" id="titleCounter">0/40B</span>
+                </div>
+                <input class="input" id="postTitleInput" type="text" placeholder="例如：窗边蓝调光的一组速写" autocomplete="off" />
+              </div>
+
+              <div class="field">
+                <div class="field-row">
+                  <label for="postDetailInput">详情</label>
+                  <span class="counter" id="detailCounter">0</span>
+                </div>
+                <textarea class="textarea" id="postDetailInput" placeholder="写下拍摄时间、灵感来源、配色或创作过程…"></textarea>
+              </div>
+
+              <div class="publish-actions">
+                <button class="compose-action secondary" type="button" id="saveDraft">保存草稿</button>
+                <button class="compose-action primary" type="button" id="publishPost" disabled>发布</button>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+      <div class="home-indicator" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <script src="js/posts.js" defer></script>
+  <script src="js/publish.js" defer></script>
+</body>
+</html>
