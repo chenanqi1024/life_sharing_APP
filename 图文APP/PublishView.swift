@@ -244,43 +244,60 @@ private struct PhotoTile: View {
     let removeAction: () -> Void
 
     var body: some View {
-        Image(uiImage: photo.image)
-            .resizable()
-            .scaledToFill()
-            .frame(minHeight: 96)
-            .aspectRatio(1, contentMode: .fit)
-            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-            .overlay(alignment: .topTrailing) {
-                Button(action: removeAction) {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 12, weight: .bold))
-                        .foregroundStyle(HuahuojiTheme.surface)
-                        .frame(width: 26, height: 26)
-                        .background(Color.black.opacity(0.5), in: Circle())
-                }
-                .buttonStyle(.plain)
-                .padding(6)
-                .accessibilityLabel("删除图片")
+        SquarePhotoTile {
+            GeometryReader { proxy in
+                Image(uiImage: photo.image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: proxy.size.width, height: proxy.size.height)
+                    .clipped()
             }
+        }
+        .overlay(alignment: .topTrailing) {
+            Button(action: removeAction) {
+                Image(systemName: "xmark")
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(HuahuojiTheme.surface)
+                    .frame(width: 26, height: 26)
+                    .background(Color.black.opacity(0.5), in: Circle())
+            }
+            .buttonStyle(.plain)
+            .padding(6)
+            .accessibilityLabel("删除图片")
+        }
+    }
+}
+
+private struct SquarePhotoTile<Content: View>: View {
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        ZStack {
+            content
+        }
+        .frame(maxWidth: .infinity)
+        .aspectRatio(1, contentMode: .fit)
+        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
 }
 
 private struct PhotoAddTile: View {
     var body: some View {
-        VStack(spacing: 7) {
-            Image(systemName: "plus")
-                .font(.system(size: 24, weight: .semibold))
-            Text("添加图片")
-                .font(.system(size: 12, weight: .bold, design: .rounded))
+        SquarePhotoTile {
+            VStack(spacing: 7) {
+                Image(systemName: "plus")
+                    .font(.system(size: 24, weight: .semibold))
+                Text("添加图片")
+                    .font(.system(size: 12, weight: .bold, design: .rounded))
+            }
+            .foregroundStyle(HuahuojiTheme.muted)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(HuahuojiTheme.surface.opacity(0.58))
+            .overlay(
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .stroke(HuahuojiTheme.surface.opacity(0.72), style: StrokeStyle(lineWidth: 1, dash: [5, 4]))
+            )
         }
-        .foregroundStyle(HuahuojiTheme.muted)
-        .frame(maxWidth: .infinity, minHeight: 96)
-        .aspectRatio(1, contentMode: .fit)
-        .background(HuahuojiTheme.surface.opacity(0.58), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(HuahuojiTheme.surface.opacity(0.72), style: StrokeStyle(lineWidth: 1, dash: [5, 4]))
-        )
     }
 }
 

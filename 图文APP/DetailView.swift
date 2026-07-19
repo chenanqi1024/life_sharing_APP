@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @Binding var post: Post
+    var onFavoriteChanged: (Post) -> Void = { _ in }
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -58,7 +59,7 @@ struct DetailView: View {
             .accessibilityLabel("返回首页")
 
             HStack(spacing: 9) {
-                AvatarView(size: 30)
+                AvatarView(url: post.authorAvatarURL, size: 30)
                 Text(post.author)
                     .font(.system(size: 13, weight: .heavy, design: .rounded))
                     .foregroundStyle(HuahuojiTheme.foreground)
@@ -78,7 +79,7 @@ struct DetailView: View {
     }
 
     private var hero: some View {
-        ArtPreview(style: post.style, tiltDegrees: -5)
+        RemoteArtImage(url: post.detailImageURL ?? post.thumbnailURL, style: post.style, tiltDegrees: -5)
             .frame(height: 420)
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .overlay(
@@ -96,7 +97,7 @@ struct DetailView: View {
         VStack(alignment: .leading, spacing: 14) {
             HStack(spacing: 12) {
                 HStack(spacing: 10) {
-                    AvatarView(size: 40)
+                    AvatarView(url: post.authorAvatarURL, size: 40)
                     VStack(alignment: .leading, spacing: 3) {
                         Text(post.author)
                             .font(.system(size: 15, weight: .black, design: .rounded))
@@ -125,7 +126,7 @@ struct DetailView: View {
 
             FlowTags(tags: post.tags)
 
-            Text("\(post.id + 1) 小时前 · 花火记")
+            Text("\(post.timeText) · \(post.sourceLabel)")
                 .font(.system(size: 12))
                 .foregroundStyle(HuahuojiTheme.muted)
         }
@@ -180,10 +181,10 @@ struct DetailView: View {
 
             HStack(spacing: 8) {
                 DetailActionButton(systemName: post.liked ? "heart.fill" : "heart", value: "\(post.likes)", isActive: post.liked) {
-                    post.liked.toggle()
-                    post.likes += post.liked ? 1 : -1
+                    post.toggleFavorite()
+                    onFavoriteChanged(post)
                 }
-                .accessibilityLabel(post.liked ? "取消喜欢" : "喜欢")
+                .accessibilityLabel(post.liked ? "取消收藏" : "收藏")
 
                 DetailActionButton(systemName: "bubble.left", value: "\(post.comments.count)") {}
                     .accessibilityLabel("评论")

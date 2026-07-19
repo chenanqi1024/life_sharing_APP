@@ -18,6 +18,7 @@
 		2A652A87300D016D007ED53E /* detail.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A73300D016D007ED53E /* detail.js */; };
 		2A652A88300D016D007ED53E /* posts.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A75300D016D007ED53E /* posts.js */; };
 		2A652A89300D016D007ED53E /* detail.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A652A7A300D016D007ED53E /* detail.html */; };
+		2A9B0001300D4001007ED53E /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2A9B0005300D4001007ED53E /* NukeUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		2A652A7B300D016D007ED53E /* huahuoji-ios-home.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "huahuoji-ios-home.html"; sourceTree = "<group>"; };
 		2A652A7C300D016D007ED53E /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		2A652A7D300D016D007ED53E /* publish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = publish.html; sourceTree = "<group>"; };
+		2A9B0002300D4001007ED53E /* Unsplash.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Unsplash.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -48,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9B0001300D4001007ED53E /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +60,7 @@
 		2A652A58300D0061007ED53E = {
 			isa = PBXGroup;
 			children = (
+				2A9B0003300D4001007ED53E /* Config */,
 				2A652A7E300D016D007ED53E /* OpenDesign */,
 				2A652A63300D0061007ED53E /* 图文APP */,
 				2A652A62300D0061007ED53E /* Products */,
@@ -105,6 +109,14 @@
 			path = OpenDesign;
 			sourceTree = "<group>";
 		};
+		2A9B0003300D4001007ED53E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2A9B0002300D4001007ED53E /* Unsplash.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,6 +127,7 @@
 				2A652A5D300D0061007ED53E /* Sources */,
 				2A652A5E300D0061007ED53E /* Frameworks */,
 				2A652A5F300D0061007ED53E /* Resources */,
+				2A9B0006300D4001007ED53E /* Write Unsplash Runtime Config */,
 			);
 			buildRules = (
 			);
@@ -125,6 +138,7 @@
 			);
 			name = "图文APP";
 			packageProductDependencies = (
+				2A9B0005300D4001007ED53E /* NukeUI */,
 			);
 			productName = "图文APP";
 			productReference = 2A652A61300D0061007ED53E /* 图文APP.app */;
@@ -154,6 +168,9 @@
 			);
 			mainGroup = 2A652A58300D0061007ED53E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2A9B0004300D4001007ED53E /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2A652A62300D0061007ED53E /* Products */;
 			projectDirPath = "";
@@ -184,6 +201,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A9B0006300D4001007ED53E /* Write Unsplash Runtime Config */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Write Unsplash Runtime Config";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/UnsplashConfig.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "CONFIG_DIR=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\nCONFIG_PLIST=\"${CONFIG_DIR}/UnsplashConfig.plist\"\nmkdir -p \"$CONFIG_DIR\"\ncat > \"$CONFIG_PLIST\" <<EOF\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n    <key>UnsplashAccessKey</key>\n    <string>${UNSPLASH_ACCESS_KEY}</string>\n</dict>\n</plist>\nEOF\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2A652A5D300D0061007ED53E /* Sources */ = {
@@ -317,6 +358,7 @@
 		};
 		2A652A6D300D0063007ED53E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A9B0002300D4001007ED53E /* Unsplash.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -349,6 +391,7 @@
 		};
 		2A652A6E300D0063007ED53E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A9B0002300D4001007ED53E /* Unsplash.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -401,6 +444,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2A9B0004300D4001007ED53E /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2A9B0005300D4001007ED53E /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A9B0004300D4001007ED53E /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A652A59300D0061007ED53E /* Project object */;
 }

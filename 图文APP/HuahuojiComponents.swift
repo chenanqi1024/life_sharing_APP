@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NukeUI
 
 struct HuahuojiBackground: View {
     var body: some View {
@@ -91,19 +92,31 @@ struct BrandSpark: View {
 }
 
 struct AvatarView: View {
+    var url: URL?
     var size: CGFloat = 18
 
     var body: some View {
-        Circle()
-            .fill(
-                LinearGradient(
-                    colors: [HuahuojiTheme.sky, HuahuojiTheme.rose],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
+        ZStack {
+            LinearGradient(
+                colors: [HuahuojiTheme.sky, HuahuojiTheme.rose],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
             )
-            .overlay(Circle().stroke(HuahuojiTheme.surface.opacity(0.75), lineWidth: max(1, size / 20)))
+
+            if let url {
+                LazyImage(url: url, transaction: Transaction(animation: .easeInOut(duration: 0.18))) { state in
+                    if let image = state.image {
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .transition(.opacity)
+                    }
+                }
+            }
+        }
             .frame(width: size, height: size)
+            .clipShape(Circle())
+            .overlay(Circle().stroke(HuahuojiTheme.surface.opacity(0.75), lineWidth: max(1, size / 20)))
     }
 }
 
@@ -161,6 +174,36 @@ struct ArtPreview: View {
 
                 SceneCard(tiltDegrees: tiltDegrees)
                     .frame(width: proxy.size.width * 0.76, height: proxy.size.height * 0.66)
+            }
+        }
+    }
+}
+
+struct RemoteArtImage: View {
+    let url: URL?
+    let style: PostStyle
+    var tiltDegrees: Double = -5
+
+    var body: some View {
+        LazyImage(url: url, transaction: Transaction(animation: .easeInOut(duration: 0.22))) { state in
+            ZStack {
+                ArtPreview(style: style, tiltDegrees: tiltDegrees)
+
+                if let image = state.image {
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .transition(.opacity)
+                } else if state.error != nil {
+                    Image(systemName: "photo")
+                        .font(.system(size: 28, weight: .semibold))
+                        .foregroundStyle(HuahuojiTheme.surface.opacity(0.9))
+                        .padding(14)
+                        .background(HuahuojiTheme.foreground.opacity(0.2), in: Circle())
+                } else {
+                    ProgressView()
+                        .tint(HuahuojiTheme.accent)
+                }
             }
         }
     }
